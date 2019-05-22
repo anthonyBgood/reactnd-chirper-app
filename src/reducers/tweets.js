@@ -1,4 +1,4 @@
-import RECEIVE_TWEETS from '../actions/tweets'
+import  RECEIVE_TWEETS  from '../actions/tweets'
 
 
 export default function users (state ={}, action){
@@ -6,7 +6,7 @@ export default function users (state ={}, action){
     case RECEIVE_TWEETS :
       return {
         ...state,
-        ... action.tweets
+        ...action.tweets
       }
     default :
       return state
