@@ -1,4 +1,4 @@
-import  RECEIVE_TWEETS  from '../actions/tweets'
+import  {RECEIVE_TWEETS}  from '../actions/tweets'
 
 
 export default function users (state ={}, action){

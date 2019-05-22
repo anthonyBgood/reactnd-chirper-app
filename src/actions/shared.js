@@ -1,8 +1,7 @@
-//cSpell: words AUTHED
 
-import getInitialData from '../utils/api'
-import receiveUsers from '../actions/users'
-import receiveTweets from '../actions/tweets'
+import { getInitialData } from '../utils/api'
+import { receiveUsers } from '../actions/users'
+import { receiveTweets } from '../actions/tweets'
 import receiveAuthedUser from '../actions/authedUser'
 
 
