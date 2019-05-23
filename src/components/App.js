@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import LoadingBar from 'react-redux-loading'
+
 import {handleInitialData } from '../actions/shared'
 import Dashboard from './Dashboard'
-import LoadingBar from 'react-redux-loading'
+import NewTweet from './NewTweet'
+
+
 
 class App extends Component {
 
@@ -18,7 +22,8 @@ class App extends Component {
         { 
           this.props.loading
           ?null
-          :<Dashboard/>
+          :<NewTweet/>
+          //:<Dashboard/>
         }
 
         
