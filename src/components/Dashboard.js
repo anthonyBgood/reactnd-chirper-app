@@ -21,7 +21,6 @@ class Dashboard extends Component {
           )}
 
         </ul>
-        {console.log('dashboard props: ', this.props)}
       </div>
     )
   }
