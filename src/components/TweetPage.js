@@ -15,13 +15,23 @@ class TweetPage extends Component{
       <div>
         <Tweet id={id}/>
         <NewTweet replyingToId={id}/>
+
+        {replies.length !== 0 && <h3 className='center'>Replies</h3>}
         <ul>
-          {replies.map((replyId)=>(
+          {replies.map((replyId) => (
             <li key={replyId}>
               <Tweet id={replyId}/>
             </li>
           ))}
         </ul>
+
+{/*         <ul>
+          {replies.map((replyId)=>(
+            <li key={replyId}>
+              <Tweet id={replyId}/>
+            </li>
+          ))}
+        </ul> */}
       </div>
     )
   }

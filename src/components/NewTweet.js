@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { handleAddTweet } from '../actions/tweets'
+import { Redirect } from 'react-router-dom'
 
 
 class NewTweet extends Component{
@@ -9,7 +10,8 @@ class NewTweet extends Component{
   WARNING_LENGTH = 100
 
   state = {
-    text: ''
+    text: '' ,
+    toHome: false ,
   }
 
   handleChange = (e) => {
@@ -22,9 +24,9 @@ class NewTweet extends Component{
   handleSubmit = (e) => {
 
     e.preventDefault()
-    const {text} = this.state
+    const {text, toHome} = this.state
     const { dispatch, replyingToId } = this.props
-    this.setState(()=>({text: ''}))
+    
 
       /*     console.group('NEW-tweet')
             console.log( 'text: ', text)
@@ -33,14 +35,22 @@ class NewTweet extends Component{
 
     dispatch(handleAddTweet(text, replyingToId))
 
-    //TODO: redirect to / after submit
+    //reset the text and redirect to home, if on the new tweet page
+    this.setState(()=>({
+      text: '' , 
+      toHome: replyingToId? false:true ,
+    }))
 
   }
 
   render(){
 
-    const {text}= this.state
-    const tweetLeft = this.MAX_LENGTH-text.length
+    const {text, toHome}= this.state
+    const tweetLeft = this.MAX_LENGTH - text.length
+
+    if(toHome === true){
+      return <Redirect to='/' />
+    }
 
     return(
       <div>
