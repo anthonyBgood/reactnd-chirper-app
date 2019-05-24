@@ -25,12 +25,14 @@ class NewTweet extends Component{
     const {text} = this.state
     const { dispatch, replyingToId } = this.props
     this.setState(()=>({text: ''}))
-    console.log('new Tweet: ', text)
+
+      /*     console.group('NEW-tweet')
+            console.log( 'text: ', text)
+            console.log('replyingToId: ', replyingToId)
+          console.groupEnd() */
+
     dispatch(handleAddTweet(text, replyingToId))
 
-
-
-    //TODO: provide text to redux store
     //TODO: redirect to / after submit
 
   }

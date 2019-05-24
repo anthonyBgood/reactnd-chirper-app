@@ -31,7 +31,8 @@ export default function users (state ={}, action){
         replyingTo = {
           [newTweet.replyingTo] : {
             ...state[newTweet.replyingTo] , 
-            replies: [...state[newTweet.replyingTo].replies, newTweet.id ]
+            replies: state[newTweet.replyingTo].replies.concat(newTweet.id)
+            //replies: [...state[newTweet.replyingTo].replies, newTweet.id ]
           }
         }
       }
