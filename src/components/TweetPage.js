@@ -9,18 +9,14 @@ class TweetPage extends Component{
 
   render(){
 
-    const { id, replies, tweets } =  this.props
-
-    console.log('tweetPage TWEET :', tweets[id])
+    const { id, replies } =  this.props
 
     return(
       <div>
-        TWEET PAGE
         <Tweet id={id}/>
         <NewTweet replyingToId={id}/>
         <ul>
           {replies.map((replyId)=>(
-
             <li key={replyId}>
               <Tweet id={replyId}/>
             </li>
@@ -40,10 +36,8 @@ function mapStateToProps({authedUser, tweets, users}, props){
     replies: 
       !tweets[id] 
       ? null 
-      : tweets[id].replies.sort((a,b)=> tweets[b].timeStamp - tweets[a].timeStamp)
+      : tweets[id].replies.sort((a,b)=> tweets[b].timestamp - tweets[a].timestamp)
       , 
-    tweets , 
-
   }
 
 }
